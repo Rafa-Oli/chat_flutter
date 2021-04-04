@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "641626895383",
+    "project_id": "chat-d7731",
+    "storage_bucket": "chat-d7731.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:641626895383:android:447754f8b6e19183999852",
+        "android_client_info": {
+          "package_name": "br.com.rafa.chat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "641626895383-idt70jmgmj0k0012afvrog8uncsroj6k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCu5kr6euei9AKwX0njoPTV9ZH6htXV36o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "641626895383-idt70jmgmj0k0012afvrog8uncsroj6k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
