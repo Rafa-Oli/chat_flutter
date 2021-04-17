@@ -22,18 +22,15 @@ class _AuthScreenState extends State<AuthScreen> {
         await _auth.createUserWithEmailAndPassword(
             email: authData.email.trim(), password: authData.password);
       }
-    } on PlatformException catch (err) {
+    } catch (err) {
       final msg =
           err.message ?? 'An error has occurred ! Check your credentials';
-
-      _scaffoldKey.currentState.showSnackBar(
+      ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(msg),
           backgroundColor: Theme.of(context).errorColor,
         ),
       );
-    } catch (err) {
-      print(err);
     }
   }
 
