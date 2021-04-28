@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
 class MessageBubble extends StatelessWidget {
+  final Key key;
   final String message;
+  final bool belongsToMe;
 
-  MessageBubble(this.message);
+  MessageBubble(this.message, this.belongsToMe, {this.key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Row(
