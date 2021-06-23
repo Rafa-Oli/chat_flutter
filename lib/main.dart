@@ -13,29 +13,35 @@ void main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Chat',
-      theme: ThemeData(
-        primarySwatch: Colors.pink,
-        backgroundColor: Colors.pink,
-        accentColor: Colors.deepPurple,
-        accentColorBrightness: Brightness.dark,
-        buttonTheme: ButtonTheme.of(context).copyWith(
-          buttonColor: Colors.pink,
-          textTheme: ButtonTextTheme.primary,
-        ),
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: StreamBuilder(
-        stream: FirebaseAuth.instance.authStateChanges(),
-        builder: (ctx, userSnaphot) {
-          if (userSnaphot.hasData) {
-            return ChatScreen();
-          } else {
-            return AuthScreen();
-          }
-        },
-      ),
+    final Future<FirebaseApp> _init = Firebase.initializeApp();
+    return FutureBuilder(
+      future: _init,
+      builder: (ctx, appSnapshot) {
+        return MaterialApp(
+          title: 'Flutter Chat',
+          theme: ThemeData(
+            primarySwatch: Colors.pink,
+            backgroundColor: Colors.pink,
+            accentColor: Colors.deepPurple,
+            accentColorBrightness: Brightness.dark,
+            buttonTheme: ButtonTheme.of(context).copyWith(
+              buttonColor: Colors.pink,
+              textTheme: ButtonTextTheme.primary,
+            ),
+            visualDensity: VisualDensity.adaptivePlatformDensity,
+          ),
+          home: StreamBuilder(
+            stream: FirebaseAuth.instance.authStateChanges(),
+            builder: (ctx, userSnaphot) {
+              if (userSnaphot.hasData) {
+                return ChatScreen();
+              } else {
+                return AuthScreen();
+              }
+            },
+          ),
+        );
+      },
     );
   }
 }
