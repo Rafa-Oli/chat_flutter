@@ -13,11 +13,24 @@ class _ChatScreenState extends State<ChatScreen> {
   @override
   void initState() {
     super.initState();
+    FirebaseMessaging.instance
+        .getInitialMessage()
+        .then((RemoteMessage message) {
+      if (message != null) {
+        Navigator.pushNamed(
+          context,
+          '/message',
+        );
+      }
+    });
 
     final fbm = FirebaseMessaging.instance;
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-      RemoteNotification notification = message.notification;
-      AndroidNotification android = message.notification?.android;
+      print('On message');
+      print(message);
+    });
+    FirebaseMessaging.onBackgroundMessage((message) {
+      print('On message');
     });
   }
 
